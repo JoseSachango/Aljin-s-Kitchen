@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NoMatch from "./pages/NoMatch";
 // import Nav from "./components/Nav";
 import NavBar from "./components/NavBar";
-import Loading from "./components/Loading";
+//import Loading from "./components/Loading";
 // import ExternalApi from "./views/ExternalApi";
 import { useAuth0 } from "@auth0/auth0-react";
 // import { Container } from "reactstrap";
@@ -16,8 +16,7 @@ initFontAwesome();
 
 function App() {
 
-  function App() {
-    const {
+     const {
       isLoading,
       isAuthenticated,
       error,
@@ -51,6 +50,6 @@ function App() {
      } else {
     return <button onClick={loginWithRedirect}>Log in</button>
   }
-}}
+}
 
 export default App;
