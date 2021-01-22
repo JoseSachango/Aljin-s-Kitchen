@@ -8,7 +8,7 @@ import Container from "./components/Container"
 // import NavBar from "./components/Auth0NavBar";
 //import Loading from "./components/Loading";
 // import ExternalApi from "./views/ExternalApi";
-import { useAuth0 } from "@auth0/auth0-react";
+// import { useAuth0 } from "@auth0/auth0-react";
 // import { Container } from "reactstrap";
 
 // fontawesome
@@ -17,9 +17,9 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
 
- const {isLoading} = useAuth0();
+//  const {isLoading} = useAuth0();
  
- if (isLoading) return <div>Loading...</div>
+//  if (isLoading) return <div>Loading...</div>
     return (
     <Router>
       <div>

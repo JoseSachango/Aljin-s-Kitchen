@@ -1,6 +1,6 @@
 import React from 'react'
 import Card from "./card"
-import NavBar from "./navbar"
+import NavBar from "./NavBar"
 
 const Container = () => {
     return (
