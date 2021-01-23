@@ -1,48 +1,79 @@
-    import React from 'react';
-    import { makeStyles } from '@material-ui/core/styles';
-    import Card from '@material-ui/core/Card';
-    import CardActionArea from '@material-ui/core/CardActionArea';
-    import CardActions from '@material-ui/core/CardActions';
-    import CardContent from '@material-ui/core/CardContent';
-    import CardMedia from '@material-ui/core/CardMedia';
-    import Button from '@material-ui/core/Button';
-    import Typography from '@material-ui/core/Typography';
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+import GridListTileBar from '@material-ui/core/GridListTileBar';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import IconButton from '@material-ui/core/IconButton';
+import AddIcon from '@material-ui/icons/Add';
+// import { tileData } from '/tileData';
 
-    const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
     root: {
-        maxWidth: 345,
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
+        overflow: 'hidden',
+        backgroundColor: theme.palette.background.paper,
     },
-    media: {
-        height: 140,
+    gridList: {
+        width: 500,
+        height: 450,
     },
-    });
+    icon: {
+        color: 'rgba(255, 255, 255, 0.54)',
+    },
 
-    export default function MediaCard() {
+}));
+
+/**
+ * The example data is structured as follows:
+ *
+ * import image from 'path/to/image.jpg';
+ * [etc...]
+ *
+
+ */
+const tileData = [
+    {
+        img: 'image',
+        title: 'Recipe',
+        rating: 'rating',
+    },
+    {
+        img: 'image',
+        title: 'Recipe',
+        rating: 'rating',
+    },{
+        img: 'image',
+        title: 'Recipe',
+        rating: 'rating',
+    },
+     ];
+
+
+export default function TitlebarGridList() {
     const classes = useStyles();
 
     return (
-        <Card className={classes.root}>
-        <CardActionArea>
-            <CardMedia
-            className={classes.media}
-            image="/static/images/cards/contemplative-reptile.jpg"
-            title="Contemplative Reptile"
-            />
-            <CardContent>
-                
-            <Typography gutterBottom variant="h5" component="h2">
-                Recipe Name
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-                Recipe description goes here...If its included in our API
-            </Typography>
-            </CardContent>
-        </CardActionArea>
-        <CardActions>
-            <Button size="small" color="primary">
-            Go to recipe
-            </Button>
-        </CardActions>
-        </Card>
+        <div className={classes.root}>
+            <GridList cellHeight={180} className={classes.gridList}>
+                {tileData.map((tile) => (
+                    <GridListTile key={tile.img}>
+                        <img src={tile.img} alt={tile.title} />
+                        <GridListTileBar
+                            title={tile.title} 
+                            subtitle={<span> {tile.rating}</span>}
+                            actionIcon={
+                                <IconButton aria-label={`info about ${tile.title}`} className={classes.icon}>
+                                    <AddIcon />
+                                </IconButton>
+                            }
+                        />
+                    </GridListTile>
+                ))}
+            </GridList>
+        </div>
     );
-    }
+}
+
