@@ -5,7 +5,7 @@ const recipeSchema = new Schema({
   name: { type: String, required: true },
   rating: { type: Number, required: true },
   image: {type: String}
-  // date: { type: Date, default: Date.now }
+
 });
 
 const Recipe = mongoose.model("Recipe", recipeSchema);
